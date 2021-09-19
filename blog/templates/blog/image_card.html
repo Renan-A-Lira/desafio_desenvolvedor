@@ -1,5 +1,5 @@
 <div class="image-card">
-    <img src="{{request.get_host}}{{image.image_file.url}}" alt="" class="image">
+    <img src="https://{{request.get_host}}{{image.image_file.url}}" alt="" class="image">
     <div class="info-like">
         <div class="likes-info">
             {% if image.approved and user.is_authenticated %}
