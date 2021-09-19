@@ -1,7 +1,7 @@
 <div class="image-card">
-    <div class="image-like-card" onclick="tap('', setlike, {{image.id}})">
+    <div class="image-like-card">
         <i class="fas fa-heart heart-like-img" id="heart-like-img-{{image.id}}"></i>
-        <img src="https://{{request.get_host}}{{image.image_file.url}}" alt="" class="image">
+        <img src="https://{{request.get_host}}{{image.image_file.url}}" alt="" class="image" onclick="tap('', setlike, {{image.id}})">
     </div>
     <div class="info-like">
         <div class="likes-info">
