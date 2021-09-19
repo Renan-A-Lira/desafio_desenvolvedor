@@ -1,5 +1,8 @@
 <div class="image-card">
-    <img src="https://{{request.get_host}}{{image.image_file.url}}" alt="" class="image">
+    <div class="image-like-card" onclick="tap('', setlike, {{image.id}})">
+        <i class="fas fa-heart heart-like-img" id="heart-like-img-{{image.id}}"></i>
+        <img src="https://{{request.get_host}}{{image.image_file.url}}" alt="" class="image">
+    </div>
     <div class="info-like">
         <div class="likes-info">
             {% if image.approved and user.is_authenticated %}

@@ -1,3 +1,18 @@
+.image-like-card{
+    display: flex;
+    position: relative;
+    z-index: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-like-card .heart-like-img {
+    position: absolute;
+    color: #ffffffa4;
+    font-size: 0;
+    transition: .4s;
+}
+
 .return{
     display: flex;
     width: 100%;
