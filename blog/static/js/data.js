@@ -61,13 +61,16 @@ function setLikesCount(count_like, action, image_id){
         icon_like.style.display='flex'
         icon_deslike.style.display='none'
         icon_heart_like_img.style.fontSize = '8rem'
+        icon_heart_like_img.style.display = 'flex'
         setTimeout(()=>{
             icon_heart_like_img.style.fontSize='0'
+            icon_heart_like_img.style.display = 'none'
         }, 1000)
     } else {
         icon_like.style.display='none'
         icon_deslike.style.display='flex'
         icon_heart_like_img.style.fontSize='0'
+        icon_heart_like_img.style.display = 'none'
     }
 }
 
