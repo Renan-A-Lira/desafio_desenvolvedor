@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block conteudo %}
+<section>
+    <form method="POST" action="{% url 'image_post' %}" enctype="multipart/form-data" class="post-form">
+        {% csrf_token %}    
+        {{ form.as_table }}             
+        <input type="submit" />
+    </form>
+</section>
+
+
+{% endblock %}

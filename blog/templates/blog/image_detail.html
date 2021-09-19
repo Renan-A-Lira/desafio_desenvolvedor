@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+
+
+{% block conteudo %}
+<section class="images">
+    <div class="card">
+        <div class="title-card">
+            <p>postado por: {{ image.author }}</p>
+        </div>
+        {%include 'blog/image_card.html'%}
+        <div class="info-card">
+            <div class="subtitle">
+                {% if image.legenda %}
+                <p>{{ image.legenda }}</p>
+                {% endif %}
+            </div>
+            <div class="coments">
+                <div class="get-comments">
+                    <a href="{%url 'image_detail' id=image.id%}">
+                        <div class="title-comment">
+                            <p>comentarios: </p>
+                        </div>
+                        <div class="show-comment">
+                            {% for comment in image.comments.all %}
+                                <p>{{comment.author}}: {{comment.text}}</p>
+                            {% endfor %}
+                        </div>
+                    </a>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="post-coment">
+                    <form action="" method="POST" class="comment-post-form"> {% csrf_token %}
+                        {{form.text}}
+                        <input type="hidden" name="image" value={{image.id}}>
+                        <button type="submit" class="button-enviar"><i class="fas fa-share"></i></button>
+                    </form>
+                </div>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+    
+    <div class="return">
+        <a href="{%url 'image_list'%}">Voltar</a>
+    </div>
+</section>
+
+{% endblock %}

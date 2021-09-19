@@ -1,0 +1,22 @@
+<div class="image-card">
+    <img src="{{image.image_file.url}}" alt="" class="image">
+    <div class="info-like">
+        <div class="likes-info">
+            {% if image.approved and user.is_authenticated %}
+                
+                <a onclick="setlike({{ image.id }})" class="like-button">
+                    <i class="fas fa-heart" id="like-image-{{image.id}}" style="display: none;"></i>
+                    <i class="far fa-heart" id="notlike-image-{{image.id}}"></i>
+                </a>
+            
+            {%endif%}
+            <p id="like-count-{{image.id}}">{{image.likes.count}} curtidas</p>
+        </div>
+        {%if request.user.is_staff %}
+            <div class="decision-admin">
+                <a href="{% url 'approve_image' id=image.id %}">Aprovar</a>
+                <a href="{% url 'remove_image' id=image.id %}">Remover</a>
+            </div>
+        {%endif%}
+    </div>
+</div>

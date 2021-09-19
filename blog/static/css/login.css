@@ -1,0 +1,15 @@
+.post-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 30px auto 30px;
+}
+
+.post-form label{
+    align-self: center;
+}
+.post-form input{
+    margin: 20px 0;
+    font-size: 1.3rem;
+}
+

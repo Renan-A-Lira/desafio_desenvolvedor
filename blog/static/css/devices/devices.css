@@ -1,0 +1,39 @@
+@media (min-width: 585.1px) {
+    .images{
+        align-items: flex-start;
+    }
+    section{
+        width: 60%;
+    }
+
+    #menu-a{
+        display: flex !important;
+        width: 40%;
+        right: 0;
+        
+    }
+    #menu-a nav a{
+        font-size: 1.2rem;
+    }
+    #menu-a nav a:last-child{
+        display: none;
+    }
+}
+
+@media (min-width: 768.1px){
+    body{
+        overflow-x: hidden;
+    }
+    .images{
+        max-height: 100vh;
+    }
+
+    .images .card{
+        width: 60%;
+        align-self: center;
+    }
+
+    #menu-a{
+
+    }
+}

@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/devices/devices.css' %}">
+
+    <link href="{% static 'fontawesome_free/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="{% static 'js/data.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
+    <title>Galeria</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="title-bar">
+                <div class="title">
+                    <h1><a href="{%url 'image_list' %}">GALERIA</a></h1>
+                    <p>Fotos com Amigos</p>
+                </div>
+                <span id="menu-mobile" onclick="menu_active()">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </div>
+        </div>
+        
+    </header>
+    <main>
+        {% block conteudo %}
+            
+        {% endblock %}
+        <div id="menu-a" style="display: none;">
+            <nav>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'register' %}">Registra-se</a>
+                {% else %}
+                    <h3>Olá, {{request.user.username}}</h3>
+                    {% if user.is_staff %}
+                        <a href="{% url 'image_list_admin' %}">Aprovar Fotos</a>
+                        <a href="{%url 'image_post'%}">Adicionar Fotos</a>
+                    {% else %}
+                        <a href="{%url 'image_post'%}">Adicionar Fotos</a>
+                    {%endif%}
+                    <a href="{%url 'logout'%}">Sair Da Conta</a>
+                {%endif%}
+                <a onclick="menu_active()">Voltar</a>
+            </nav>
+        </div>
+
+    </main>
+        
+
+    
+
+</body>
+<script>
+    {% autoescape off%}
+    let images_id = `{{request.user.post_like.all}}`.match(/\d+/g)
+    images_id.map((id, index) => {
+            if(`{{images}}`){
+                let like = document.getElementById(`like-image-${id}`)
+                let notlike = document.getElementById(`notlike-image-${id}`)
+                notlike.style.display = 'none'
+                like.style.display = 'flex'
+            }
+            else{
+                if(id == `{{image}}`){
+                    let like = document.getElementById(`like-image-${id}`)
+                    let notlike = document.getElementById(`notlike-image-${id}`)
+                    notlike.style.display = 'none'
+                    like.style.display = 'flex'
+                }
+            }
+
+        
+    })
+        
+    {%endautoescape%}
+</script>
+</html>

@@ -1,0 +1,123 @@
+section{
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.card .title-card{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    margin-left: 10px;
+}
+.card .image-card{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: flex-end;
+}
+
+.image-card .image{
+    width: 100%;
+}
+
+.image-card .info-like{
+    padding: 10px;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.image-card .info-like .likes-info{
+    display: flex;
+    align-items: center;
+}
+
+.image-card .info-like a {
+    display: flex;
+
+    font-size: 1.3rem;
+    color: #9b0f0f;
+    margin-right: 5px;
+}
+
+.image-card .info-like p{
+    font-size: .8rem;
+}
+
+.image-card .comment{
+    align-self: flex-end;
+    color: #1955af;
+    background-color: #0a4091;
+}
+
+.card .info-card{
+    padding: 10px;
+}
+
+.get-comments{
+    margin: 10px 0;
+}
+.get-comments .title-comment{
+    font-weight: bold;
+}
+.get-comments .show-comment{
+    font-size: 0.8rem;
+}
+.get-comments .show-comment p {
+    padding: 5px 0;
+}
+
+
+.post-coment form{
+    margin-top: 10px;
+    display: flex;
+    flex: 3;
+}
+
+.comment-area{
+    flex: 2;
+    resize: none;
+    outline:none;
+    border-radius: 10px;
+    padding: 3px;
+    background-color: transparent;
+    border: white 1px solid;
+    color: white;
+    flex-direction: column;
+    max-height: 30px;
+    font-size: 1rem;
+    font-family: 'PT Sans', sans-serif;
+}
+.post-coment .button-enviar{
+    outline: none;
+    border: none;
+
+    background: none;
+    font-size: 1.4rem;
+    padding: 0 10px;
+    color: white;
+
+}
+
+
+.decision-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.decision-admin a{
+    flex: 1;
+    background-color: #2b2b2b;
+    font-size: 0.9rem !important;
+    padding: 2px;
+    align-self: flex-end;
+}

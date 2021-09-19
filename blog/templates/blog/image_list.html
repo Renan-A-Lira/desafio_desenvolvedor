@@ -1,0 +1,68 @@
+{% extends 'blog/base.html' %}
+
+{% block conteudo %}
+
+    <section class="images">
+        {%if images %}
+            {% for image in images %}
+            <div class="card">
+                <div class="title-card">
+                    <p>postado por: {{ image.author }}</p>
+                </div>
+                {% include 'blog/image_card.html' %}
+                <div class="info-card">
+                    {% if image.approved %}
+                        <div class="subtitle">
+                            {% if image.legenda %}
+                                <p>{{ image.legenda }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="coments">
+                            <div class="get-comments">
+                                <a href="{%url 'image_detail' id=image.id%}">
+                                    <div class="title-comment">
+                                        <p>ver comentarios:</p>
+                                    </div>
+                                    <div class="show-comment">
+                                        <p>{{ image.comments.count }} comentarios</p>
+                                        {% if image.comments.count %}
+                                            <p>{{image.comments.last.author}}: {{image.comments.last.text}}</p>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="post-coment">
+                                <form action="" method="POST" class="comment-post-form"> {% csrf_token %}
+                                    {{form.text}}
+                                    <input type="hidden" name="image" value={{image.id}}>
+                                    <button type="submit" class="button-enviar"><i class="fas fa-share"></i></button>
+                                </form>
+                            </div>
+                            {%endif%}
+                        </div>
+                    {%endif%}
+                </div>
+            </div>
+            
+            
+
+            {% endfor %}
+            {% else %}
+                <div class="card">
+                    <div class="title-card">
+
+                        <h2>Sem novas imagens :(</h2>
+                    </div>
+                </div>
+            {%endif%}
+            {%if request.path == '/images/admin'%}
+                <div class="return">
+                    <a href="{%url 'image_list'%}">Voltar</a>
+                </div>
+            {% endif %}
+            
+    </section>
+
+
+{% endblock %}
