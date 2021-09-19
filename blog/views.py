@@ -95,6 +95,7 @@ def image_post(request):
         if form.is_valid():
             image = form.save(commit=False)
             image.author = request.user
+            image.filename = image.image_file.name
             image.save()
 
             return redirect('image_list')

@@ -10,7 +10,7 @@ def upload_image(image, filename):
 
 class Image(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    filename = models.CharField(max_length=100, unique=True)
+    filename = models.CharField(max_length=100)
     legenda = models.TextField(max_length=145, blank=True, null=True)
     image_file = models.ImageField(upload_to=upload_image)
     approved = models.BooleanField(default=False)

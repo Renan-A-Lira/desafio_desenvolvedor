@@ -4,7 +4,11 @@
 <section>
     <form method="POST" action="{% url 'image_post' %}" enctype="multipart/form-data" class="post-form">
         {% csrf_token %}    
-        {{ form.as_table }}             
+        {{ form.legenda.label_tag }}
+        {{ form.legenda }}
+        
+        <label for="id_image_file">Escolher Arquivo</label>
+        {{form.image_file}}
         <input type="submit" />
     </form>
 </section>

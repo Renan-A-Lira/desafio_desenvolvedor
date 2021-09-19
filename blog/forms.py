@@ -11,9 +11,9 @@ class ImageForm(forms.ModelForm):
     	
 	class Meta:
 		model = Image
-		fields = ['filename', 'image_file']
+		fields = ['legenda', 'image_file']
 		widgets = {
-            'filename': forms.TextInput(attrs={'class': 'title-form'}),
+            'legenda': forms.TextInput(attrs={'class': 'legenda-form'}),
             'image_file': forms.FileInput(attrs={'class': 'text-form'})
         }
 
