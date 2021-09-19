@@ -4,7 +4,7 @@ function setlike(id){
         image_id: id
     }
     
-    fetch(`http://${window.location.host}/image/like`, {
+    fetch(`https://${window.location.host}/image/like`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Accept': 'application/json, text/plain, */*',
