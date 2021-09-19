@@ -3,7 +3,6 @@
 {% block conteudo %}        
 
 <section>
-	<h3>Registrar</h3>
 		<form method="POST" action="{% url 'register' %}" class="post-form form-register">
 			{% csrf_token %}    
 			{{ form.username.label_tag }}
@@ -18,7 +17,7 @@
 			{{ form.password2.label_tag }}
 			{{ form.password2 }}
 			
-			<input type="submit"/>
+			<input type="submit" />
 		</form>
 </section>
 
