@@ -73,9 +73,10 @@
 <script>
     {% autoescape off%}
     let images_id = `{{request.user.post_like.all}}`.match(/\d+/g)
+    console.log(images_id)
     images_id.map((id, index) => {
+        console.log(id)
             if(`{{images}}`){
-                console.log(id)
                 let like = document.getElementById(`like-image-${id}`);
                 let notlike = document.getElementById(`notlike-image-${id}`);
                 console.log(notlike)
