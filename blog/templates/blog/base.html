@@ -75,8 +75,10 @@
     let images_id = `{{request.user.post_like.all}}`.match(/\d+/g)
     images_id.map((id, index) => {
             if(`{{images}}`){
-                let like = document.getElementById(`like-image-${id}`)
-                let notlike = document.getElementById(`notlike-image-${id}`)
+                console.log(id)
+                let like = document.getElementById(`like-image-${id}`);
+                let notlike = document.getElementById(`notlike-image-${id}`);
+                console.log(notlike)
                 notlike.style.display = 'none'
                 like.style.display = 'flex'
             }
