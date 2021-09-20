@@ -8,11 +8,3 @@ const menu_active = (f) => {
         menu_a.style.display = 'none'
     }
 }
-
-fetch(`https://${window.location.host}/image/like`,{
-    method: 'GET',
-}).then((res) => {
-    res.json().then(data => {
-        console.log(data.count)
-      })
-})
