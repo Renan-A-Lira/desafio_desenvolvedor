@@ -12,6 +12,8 @@ Por favor, crie um site que atenda às suas necessidades. Você deve usar python
 
 Feito totalmente em **python** usando o framework **django** com html, css, js básico e responsivo.
 
+Hospedado no pythonanywhere.com
+
 ## informações
 
 ### link do aplicativo: https://renanlira.pythonanywhere.com/
