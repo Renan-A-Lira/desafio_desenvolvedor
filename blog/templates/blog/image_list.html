@@ -11,12 +11,12 @@
                 </div>
                 {% include 'blog/image_card.html' %}
                 <div class="info-card">
+                    <div class="subtitle">
+                        {% if image.legenda %}
+                            <p>{{ image.legenda }}</p>
+                        {% endif %}
+                    </div>
                     {% if image.approved %}
-                        <div class="subtitle">
-                            {% if image.legenda %}
-                                <p>{{ image.legenda }}</p>
-                            {% endif %}
-                        </div>
                         <div class="coments">
                             <div class="get-comments">
                                 <a href="{%url 'image_detail' id=image.id%}">
