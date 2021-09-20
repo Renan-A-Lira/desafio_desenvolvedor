@@ -5,7 +5,7 @@
 <section class="images">
     <div class="card">
         <div class="title-card">
-            <p>postado por: {{ image.author }} em {{ image.published_date }}</p>
+            <p>postado por: {{ image.author }} em {% if image.published_date %}{{ image.published_date }}{%endif%}</p>
         </div>
         {%include 'blog/image_card.html'%}
         <div class="info-card">
