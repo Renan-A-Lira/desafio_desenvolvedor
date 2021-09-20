@@ -42,7 +42,6 @@ function setlike(id){
         "X-CSRFToken": getCookie('csrftoken') },
     }).then(res =>{
         res.json().then(data => {
-            console.log(data)
             setLikesCount(data.count_like, data.action, id)
           })
     })

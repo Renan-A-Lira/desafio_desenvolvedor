@@ -35,6 +35,19 @@ def image_list(request):
             return redirect('login')
     return render(request, 'blog/image_list.html', {'images': images, 'form': form})
 
+
+
+@staff_member_required()
+def info_image_list_approved(request):
+    images = Image.objects.filter(approved=False)
+    images_count = images.count()
+
+    data= {
+        'count': images_count,
+    }
+
+    return JsonResponse(data)
+
 def image_detail(request, id):
     image = get_object_or_404(Image, id=id)
     form = CommentForm()

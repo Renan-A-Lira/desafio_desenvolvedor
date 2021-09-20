@@ -17,7 +17,9 @@
         </div>
         {%if request.user.is_staff %}
             <div class="decision-admin">
-                <a href="{% url 'approve_image' id=image.id %}">Aprovar</a>
+                {%if image.approved %}
+                    <a href="{% url 'approve_image' id=image.id %}">Aprovar</a>
+                {%endif%}
                 <a href="{% url 'remove_image' id=image.id %}">Remover</a>
             </div>
         {%endif%}
