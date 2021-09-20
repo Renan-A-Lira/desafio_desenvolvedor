@@ -109,7 +109,10 @@ def image_post(request):
             image = form.save(commit=False)
             image.author = request.user
             image.filename = image.image_file.name
+            if request.user.is_staff:
+                image.approved = True
             image.save()
+
 
             return redirect('image_list')
     return render(request, 'blog/image_post.html', {'form': form})
