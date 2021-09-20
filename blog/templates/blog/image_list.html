@@ -7,7 +7,7 @@
             {% for image in images %}
             <div class="card">
                 <div class="title-card">
-                    <p>postado por: {{ image.author }}</p>
+                    <p>postado por: {{ image.author }} em {{ image.published_date }}</p>
                 </div>
                 {% include 'blog/image_card.html' %}
                 <div class="info-card">
