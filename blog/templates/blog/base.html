@@ -53,7 +53,7 @@
                 {% else %}
                     <h3>Olá, {{request.user.username}}</h3>
                     {% if user.is_staff %}
-                        <a href="{% url 'image_list_admin' %}">Aprovar Fotos</a>
+                        <a href="{% url 'image_list_admin' %}" id="approve_images">Aprovar Fotos</a>
                         <a href="{%url 'image_post'%}">Adicionar Fotos</a>
                     {% else %}
                         <a href="{%url 'image_post'%}">Adicionar Fotos</a>
@@ -73,14 +73,10 @@
 <script>
     {% autoescape off%}
     let images_id = `{{request.user.post_like.all}}`.match(/\d+/g)
-    console.log(images_id)
     images_id.map((id, index) => {
-        console.log(id)
             if(`{{images}}`){
                 let like = document.getElementById(`like-image-${id}`);
                 let notlike = document.getElementById(`notlike-image-${id}`);
-                console.log(notlike)
-                console.log(like)
                 notlike.style.display = 'none'
                 like.style.display = 'flex'
             }
@@ -101,7 +97,8 @@
         method: 'GET',
     }).then((res) => {
     res.json().then(data => {
-        console.log(data.count)
+        let approve_images = document.getElementById('approve_images')
+        approve_images.innerHTML = `Aprovar fotos (${data.count})`
       })
     })
 
