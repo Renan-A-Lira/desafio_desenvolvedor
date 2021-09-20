@@ -97,7 +97,7 @@
     })
     
 
-    fetch(`https://${window.location.host}/image/like`,{
+    fetch(`https://${window.location.host}/image/getcount`,{
         method: 'GET',
     }).then((res) => {
     res.json().then(data => {

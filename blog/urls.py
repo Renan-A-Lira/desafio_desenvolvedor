@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.image_list, name='image_list'),
     path('image/detail/<int:id>', views.image_detail, name='image_detail'),
+    path('image/getcount', views.info_image_list_approved, name='info_list'),
     path('image/create', views.image_post, name='image_post'),
     path('image/approve/<int:id>', views.approve_image, name='approve_image'),
     path('image/remove/<int:id>', views.remove_image, name='remove_image'),
