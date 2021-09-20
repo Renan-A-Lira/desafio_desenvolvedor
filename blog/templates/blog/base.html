@@ -96,10 +96,14 @@
     fetch(`https://${window.location.host}/image/getcount`,{
         method: 'GET',
     }).then((res) => {
-    res.json().then(data => {
-        let approve_images = document.getElementById('approve_images')
-        approve_images.innerHTML = `Aprovar fotos (${data.count})`
-      })
+        if (res.status >= 200){
+            res.json().then(data => {
+                let approve_images = document.getElementById('approve_images')
+                if (data.count > 0){
+                    approve_images.innerHTML = `Aprovar fotos (${data.count})`
+                }
+            })
+        }
     })
 
 
